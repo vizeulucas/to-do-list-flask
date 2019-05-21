@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>To-Do List</title>
-</head>
-<body>
-    <h1>ToDo List App!</h1>
-</body>
-</html>
+{% extends "template.html" %}
+{% block content %}
+    <table>
+        <tr>
+            <th>Tarefa</th>
+            <th>Prazo</th>
+            <th>Detalhes</th>
+        </tr>
+        {% if tarefas %}
+            {% for tarefa in tarefas %}
+                <tr>
+                    <td>tarefa.nome</td>
+                    <td>tarefa.prazo</td>
+                    <td>tarefa.detalhe</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td>sem tarefa</td>
+                <td>sem tarefa</td>
+                <td>sem tarefa</td>
+            </tr>
+        {% endif %}
+    </table>
+
+    <a href="#">Criar Tarefa</a>
+{% endblock %}
